@@ -1,0 +1,39 @@
+# Docker Compose configuration for NatureMind app
+
+services:
+  naturemind-app:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    volumes:
+      # Mount the database directory to persist data
+      - naturemind_data:/app/data
+      # Mount frontend assets for development
+      - ./backend/frontend:/app/frontend
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5002/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add a database service if you want to use PostgreSQL instead of SQLite
+  # postgres:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_DB: naturemind
+  #     POSTGRES_USER: naturemind
+  #     POSTGRES_PASSWORD: naturemind123
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+
+volumes:
+  naturemind_data:

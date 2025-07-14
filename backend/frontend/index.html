@@ -1,0 +1,382 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NatureMind - Mental Wellness & Nature Connection</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Authentication Overlay -->
+    <div id="auth-overlay" class="auth-overlay">
+        <div class="auth-container">
+            <div class="auth-header">
+                <div class="auth-brand">
+                    <i class="fas fa-leaf"></i>
+                    <span>NatureMind</span>
+                </div>
+                <p>Your journey to mental wellness through nature connection</p>
+            </div>
+            
+            <!-- Login Form -->
+            <form id="login-form" class="auth-form">
+                <h2>Welcome Back</h2>
+                <div class="form-group">
+                    <input type="text" id="login-username" placeholder="Username or Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+                <p class="auth-switch">Don't have an account? <a href="#" onclick="showRegister()">Register</a></p>
+            </form>
+            
+            <!-- Register Form -->
+            <form id="register-form" class="auth-form" style="display: none;">
+                <h2>Join NatureMind</h2>
+                <div class="form-group">
+                    <input type="text" id="register-username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="register-email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="register-password" placeholder="Password (min 6 characters)" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="register-location" placeholder="Your location (optional)">
+                </div>
+                <button type="submit" class="auth-btn">Register</button>
+                <p class="auth-switch">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app-container" class="app-container" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>NatureMind</span>
+            </div>
+            <div class="nav-links">
+                <button class="nav-link active" data-section="home">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </button>
+                <button class="nav-link" data-section="mood-tracker">
+                    <i class="fas fa-heart"></i>
+                    <span>Mood</span>
+                </button>
+                <button class="nav-link" data-section="ai-companion">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Companion</span>
+                </button>
+                <button class="nav-link" data-section="activities">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Activities</span>
+                </button>
+                <button class="nav-link" data-section="mindfulness">
+                    <i class="fas fa-spa"></i>
+                    <span>Mindfulness</span>
+                </button>
+                <button class="nav-link" data-section="community">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </button>
+                <button class="nav-link" data-section="happening-now">
+                    <i class="fas fa-bolt"></i>
+                    <span>Happening Now</span>
+                </button>
+            </div>
+            <div class="user-section">
+                <div class="user-info">
+                    <span id="user-username">Welcome</span>
+                    <small id="user-location"></small>
+                </div>
+                <button class="logout-btn" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Section -->
+            <section id="home" class="section active">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1>Welcome to NatureMind</h1>
+                        <p>Your journey to mental wellness through nature connection and mindful living</p>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">7</span>
+                                <span class="stat-label">Days of mindfulness</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">12</span>
+                                <span class="stat-label">Local activities</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">89%</span>
+                                <span class="stat-label">Mood improvement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="bg.png" alt="Nature Mind">
+                    </div>
+                </div>
+
+                <div class="quick-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="action-cards">
+                        <div class="action-card" onclick="showSection('mood-tracker')">
+                            <i class="fas fa-heart"></i>
+                            <h3>Check In</h3>
+                            <p>How are you feeling today?</p>
+                        </div>
+                        <div class="action-card" onclick="showSection('ai-companion')">
+                            <i class="fas fa-robot"></i>
+                            <h3>Talk to AI</h3>
+                            <p>Get personalized support</p>
+                        </div>
+                        <div class="action-card" onclick="showSection('activities')">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h3>Find Activities</h3>
+                            <p>Discover local wellness events</p>
+                        </div>
+                        <div class="action-card" onclick="showSection('mindfulness')">
+                            <i class="fas fa-spa"></i>
+                            <h3>Meditate</h3>
+                            <p>5-minute guided session</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mood Tracker Section -->
+            <section id="mood-tracker" class="section">
+                <div class="section-header">
+                    <h2>Mood Tracker</h2>
+                    <p>Track your emotional journey and discover patterns</p>
+                </div>
+
+                <div class="mood-input-container">
+                    <div class="mood-selector">
+                        <h3>How are you feeling today?</h3>
+                        <div class="mood-options">
+                            <button class="mood-option" data-mood="happy">
+                                <span>😊</span>
+                                <span>Happy</span>
+                            </button>
+                            <button class="mood-option" data-mood="calm">
+                                <span>😌</span>
+                                <span>Calm</span>
+                            </button>
+                            <button class="mood-option" data-mood="anxious">
+                                <span>😰</span>
+                                <span>Anxious</span>
+                            </button>
+                            <button class="mood-option" data-mood="tired">
+                                <span>😴</span>
+                                <span>Tired</span>
+                            </button>
+                            <button class="mood-option" data-mood="stressed">
+                                <span>😤</span>
+                                <span>Stressed</span>
+                            </button>
+                            <button class="mood-option" data-mood="lonely">
+                                <span>😔</span>
+                                <span>Lonely</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="emotion-tags">
+                        <h3>What emotions are you experiencing?</h3>
+                        <div class="tag-options">
+                            <button class="tag-option" data-tag="grateful">Grateful</button>
+                            <button class="tag-option" data-tag="excited">Excited</button>
+                            <button class="tag-option" data-tag="worried">Worried</button>
+                            <button class="tag-option" data-tag="peaceful">Peaceful</button>
+                            <button class="tag-option" data-tag="overwhelmed">Overwhelmed</button>
+                            <button class="tag-option" data-tag="hopeful">Hopeful</button>
+                    </div>
+                </div>
+
+                    <div class="journal-entry">
+                        <h3>Journal your thoughts (optional)</h3>
+                        <textarea id="journal-text" placeholder="Write about your day, feelings, or anything on your mind..."></textarea>
+                    </div>
+
+                    <button class="save-mood-btn" onclick="saveMoodEntry()">
+                        <i class="fas fa-save"></i>
+                        Save Entry
+                    </button>
+                </div>
+
+                <div class="mood-history">
+                    <h3>Your Mood History</h3>
+                    <div id="mood-entries" class="mood-entries-list">
+                        <!-- Mood entries will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI Companion Section -->
+            <section id="ai-companion" class="section">
+                <div class="section-header">
+                    <h2>AI Wellness Companion</h2>
+                    <p>Your supportive friend for emotional guidance and mindfulness</p>
+                </div>
+
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Hello! I'm here to support you on your wellness journey. How are you feeling today?</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input">
+                        <input type="text" id="chat-input-field" placeholder="Tell me how you're feeling...">
+                        <button onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ai-suggestions">
+                    <h3>Quick Start Conversations</h3>
+                    <div class="suggestion-buttons">
+                        <button class="suggestion-btn" onclick="sendQuickMessage('I feel anxious today')">I feel anxious</button>
+                        <button class="suggestion-btn" onclick="sendQuickMessage('I need help with stress')">Help with stress</button>
+                        <button class="suggestion-btn" onclick="sendQuickMessage('I want to meditate')">Meditation guidance</button>
+                        <button class="suggestion-btn" onclick="sendQuickMessage('I feel lonely')">Feeling lonely</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Happening Now Section -->
+            <section id="happening-now" class="section">
+                <div class="section-header">
+                    <h2>Happening Now</h2>
+                    <p>Join activities that are happening soon in your area!</p>
+                </div>
+                <div class="activities-grid" id="happening-now-grid">
+                    <!-- Happening now activities will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Activities Section -->
+            <section id="activities" class="section">
+                <div class="section-header">
+                    <h2>Local Wellness Activities</h2>
+                    <p>Discover nature retreats, meditation sessions, and wellness events near you</p>
+                                </div>
+
+                <div class="activities-filters">
+                    <select id="category-filter">
+                        <option value="">All Categories</option>
+                        <option value="meditation">Meditation</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="nature-walk">Nature Walk</option>
+                        <option value="retreat">Retreat</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <input type="text" id="location-filter" placeholder="Enter location...">
+                    <button onclick="filterActivities()">Filter</button>
+                    <button onclick="showNearbyActivities()" class="nearby-btn">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Show Nearby
+                    </button>
+                        </div>
+
+                <div class="activities-grid" id="activities-grid">
+                    <!-- Activities will be loaded here -->
+                </div>
+
+                <div class="add-activity">
+                    <h3>Add a Wellness Activity</h3>
+                    <form id="activity-form" class="activity-form">
+                        <input type="text" placeholder="Activity Title" required>
+                        <textarea placeholder="Description" required></textarea>
+                        <select required>
+                            <option value="">Select Category</option>
+                            <option value="meditation">Meditation</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="nature-walk">Nature Walk</option>
+                            <option value="retreat">Retreat</option>
+                            <option value="workshop">Workshop</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <input type="text" placeholder="Location" required>
+                        <input type="date" required>
+                        <input type="time" required>
+                        <input type="number" placeholder="Price" min="0" step="0.01">
+                        <input type="number" placeholder="Max Participants" min="1">
+                        <input type="text" placeholder="Contact Info" required>
+                        <button type="submit">Add Activity</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Mindfulness Section -->
+            <section id="mindfulness" class="section">
+                <div class="section-header">
+                    <h2>Mindfulness Library</h2>
+                    <p>Guided meditations, breathing exercises, and nature therapy</p>
+                    </div>
+
+                <div class="mindfulness-categories">
+                    <button class="category-btn active" data-category="meditation">Meditation</button>
+                    <button class="category-btn" data-category="breathing">Breathing</button>
+                    <button class="category-btn" data-category="nature">Nature Sounds</button>
+                    <button class="category-btn" data-category="affirmations">Affirmations</button>
+                    </div>
+
+                <div class="mindfulness-content" id="mindfulness-content">
+                    <!-- Mindfulness content will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Community Section -->
+            <section id="community" class="section">
+                <div class="section-header">
+                    <h2>Community Wall</h2>
+                    <p>A safe space to share thoughts, gratitude, and connect with others</p>
+                    </div>
+                    
+                <div class="community-post-form">
+                    <h3>Share Something</h3>
+                    <select id="post-category">
+                        <option value="gratitude">Gratitude</option>
+                        <option value="reflection">Reflection</option>
+                        <option value="inspiration">Inspiration</option>
+                        <option value="support">Support</option>
+                    </select>
+                    <textarea id="post-content" placeholder="Share your thoughts, gratitude, or inspiration..."></textarea>
+                    <button onclick="addCommunityPost()">Share Post</button>
+                    </div>
+                    
+                <div class="community-posts" id="community-posts">
+                    <!-- Community posts will be loaded here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
