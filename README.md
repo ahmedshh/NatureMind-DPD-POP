@@ -1,13 +1,20 @@
 # NatureMind 🌿
 
-A comprehensive mental wellness application that combines AI-guided emotional support, mindfulness tools, local self-care activities, mood tracking, and community features.
+A comprehensive mental wellness platform that connects people through local wellness activities, mood tracking, and community support.
 
-## Features ✨
+## Core Features ✨
 
-### 🧠 AI Companion
-- Personalized emotional support and guidance
-- Mood-based response system
-- Helpful suggestions for mental wellness activities
+### 💰 Earn by Creating Activities
+- **Create and monetize your wellness activities** - Organize yoga sessions, meditation workshops, nature walks, and more
+- **Set your own pricing** - Charge participants for your expertise and time
+- **Build your wellness business** - Grow your clientele and establish yourself as a wellness professional
+- **Flexible scheduling** - Choose dates, times, and locations that work for you
+
+### 🏃‍♀️ Join Local Activities
+- **Discover nearby wellness events** - Find activities in your area through location-based filtering
+- **Join community events** - Participate in yoga, meditation, nature walks, and other wellness activities
+- **Connect with local wellness professionals** - Meet like-minded individuals and wellness experts
+- **Support local wellness economy** - Contribute to your community's mental health and wellness
 
 ### 📊 Mood Tracking & Journaling
 - Daily mood logging with emotion tags
@@ -15,18 +22,13 @@ A comprehensive mental wellness application that combines AI-guided emotional su
 - Mood history visualization
 - Progress tracking over time
 
-### 🏃‍♀️ Local Wellness Activities
-- Discover nearby wellness activities
-- Join community events (yoga, meditation, nature walks)
-- Create and organize your own activities
-- Location-based filtering (currently featuring German locations)
-
-### 👥 Community Wall
+### 👥 Community Support
 - Share experiences anonymously or publicly
 - Connect with like-minded individuals
 - Support and encourage others on their wellness journey
+- Build meaningful connections in your local wellness community
 
-### 🧘‍♀️ Mindfulness Library
+### 🧘‍♀️ Mindfulness Resources
 - Guided meditation content
 - Breathing exercises
 - Stress relief techniques
@@ -58,7 +60,7 @@ A comprehensive mental wellness application that combines AI-guided emotional su
 3. **Access the application**
    - Open your browser and go to `http://localhost:5002`
    - Register a new account or log in
-   - Start exploring the features!
+   - Start creating or joining activities!
 
 ### Manual Setup
 
@@ -94,34 +96,6 @@ nature-by-AI-main/
 └── README.md                       # This file
 ```
 
-## API Endpoints 🔌
-
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `POST /api/auth/logout` - User logout
-- `GET /api/auth/me` - Get current user info
-
-### Mood Tracking
-- `POST /api/mood/log` - Log mood entry
-- `GET /api/mood/history` - Get mood history
-
-### Activities
-- `GET /api/activities` - Get wellness activities
-- `POST /api/activities` - Create new activity
-- `POST /api/activities/<id>/join` - Join activity
-- `POST /api/activities/<id>/leave` - Leave activity
-
-### Community
-- `GET /api/community/posts` - Get community posts
-- `POST /api/community/posts` - Create new post
-
-### Mindfulness
-- `GET /api/mindfulness` - Get mindfulness content
-
-### AI Companion
-- `POST /api/ai/companion` - Get AI response
-
 ## Database Schema 🗄️
 
 The application uses SQLite with the following main tables:
@@ -140,14 +114,10 @@ The application uses SQLite with the following main tables:
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Support 💬
 
 If you have any questions or need support, please open an issue on GitHub.
 
 ---
 
-**NatureMind** - Nurturing mental wellness through technology and community 🌱
+**NatureMind** - Connecting wellness professionals with their community 🌱
