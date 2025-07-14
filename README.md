@@ -121,3 +121,5 @@ If you have any questions or need support, please open an issue on GitHub.
 ---
 
 **NatureMind** - Connecting wellness professionals with their community 🌱
+
+BY: Muhammad Ahmed Shahab | Anusuya Kuguavarathan | Abdul Hannan | Abdul Mannan 
